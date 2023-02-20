@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Results from '../../Components/Results/Results';
+import Header from '../../Components/Header/Header';
 import { addMovie } from '../../Reducers/MovieSlice';
 import { searchByTitle } from '../../Services/apiCalls';
 import './HomePage.scss'
+import DisplayMovie from '../../Components/DisplayMovie/DisplayMovie';
 
 const HomePage = () => {
   // const movie = useSelector((state) => state.movieReducer);
   const [title, setTitle] = useState("");
-  const [results, setResults] = useState("")
+  const [results, setResults] = useState({
+    Title: "",
+    Year:"",
+    Plot: "",
+    Actors: "",
+    Awards:"",
+    Poster: "",
+    imdbRating: ""
+  })
   const dispatch = useDispatch();
 
   const changeTitle = (e) => {
@@ -24,6 +33,7 @@ const HomePage = () => {
 
   return (
     <>
+    <Header />
       <section className='title'>
         <h1>Movie Search</h1>
         <h2>Search about the movie of your choise and save your favorite ones</h2>
@@ -34,9 +44,9 @@ const HomePage = () => {
         </div>
       </section>
       <section className='results'>
-        <Results 
-          title={results !== "" && results.Title}
-          year={results !== "" && results.Year}
+        <DisplayMovie 
+          info={results}
+          unFavorite={false}
         />
       </section>
     </>
