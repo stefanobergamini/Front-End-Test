@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 export const movieSlice = createSlice({
   name: 'movie',
@@ -9,11 +9,10 @@ export const movieSlice = createSlice({
     Actors: "",
     Awards:"",
     Poster: "",
-    Ratings: []
+    imdbRating: ""
   },
   reducers: {
     addMovie: (state, action) => {
-      console.log("before", current(state));
       return action.payload
     },
   },
