@@ -23,11 +23,11 @@ footer {
       font-size: 1.6rem;
       border: 0.5rem solid transparent;
       background-color: transparent;
-      color: #fff;
+      color: $white;
       transition: 0.5s;
     }
     .links:hover {
-      background-color: $blue01;
+      background-color: $black;
     }
   }
 }

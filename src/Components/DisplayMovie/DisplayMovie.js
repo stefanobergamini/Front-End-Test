@@ -33,7 +33,7 @@ const DisplayMovie = ({ info, index }) => {
               {
                 inFavorites() ?
                   <Button className='bt bt-remove-favorite' onClick={() => dispatch(removeFavorite(index))}>unFavorite <img src={filledHeart} alt=''/></Button> :
-                  <Button className='bt bt-blue-solid' onClick={() => dispatch(addFavorite(info))}>Favorite <img src={heart} alt=''/></Button>
+                  <Button className='bt bt-black-leaked' onClick={() => dispatch(addFavorite(info))}>Favorite <img src={heart} alt=''/></Button>
               }
 
             </div>

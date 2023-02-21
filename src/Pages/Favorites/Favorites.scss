@@ -2,8 +2,11 @@
 
 .favorites {
   @include flex-element(column, center, center);
+  h1 {
+    margin: 2rem 0;
+  }
   .movie-repeat {
-    background-color: $blue02;
+    border: 1px solid $black;
     border-radius: 2rem;
     padding: 2rem;
     margin: 2rem 0;

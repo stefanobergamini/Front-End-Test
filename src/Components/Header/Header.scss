@@ -4,7 +4,7 @@ header {
   width: 100%;
   min-width: 37.5rem;
   height: 9rem;
-  background-color: #7F8086;
+  background-color: #1f1f20;
   .container {
     display: flex;
     flex-direction: row;
@@ -28,6 +28,7 @@ header {
       background-color: transparent;
       color: $gray04;
       transition: 0.5s;
+      margin-left: 1rem;
     }
     .links:hover {
       background-color: $gray04;

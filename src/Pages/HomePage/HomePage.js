@@ -51,13 +51,15 @@ const HomePage = () => {
       <Header />
       <div className='home-page'>
         <section className='title'>
-          <h1>Movie Search</h1>
-          <h2>Search about the movie of your choise and save your favorite ones</h2>
-          <form className='search-bar' onSubmit={search}>
-            <Input onInput={changeTitle} onChange={search} className='input-movie' placeholder='Insert name of movie' />
-            <Button className='bt bt-blue-solid' type='submit'>Search</Button>
-            <Button className='bt bt-blue-leaked' type='reset'>Reset</Button>
-          </form>
+          <h1>IMDb Reviews</h1>
+          <div className='search-field'>
+            <h2>Search about the movie of your choise and save your favorite ones</h2>
+            <form className='search-bar' onSubmit={search}>
+              <Input onInput={changeTitle} onChange={search} className='input-movie' placeholder='Insert name of movie' />
+              <Button className='bt bt-black-solid' type='submit'>Search</Button>
+              <Button className='bt bt-black-leaked' type='reset'>Reset</Button>
+            </form>
+          </div>
         </section>
         <section className='results'>
           {
@@ -70,8 +72,8 @@ const HomePage = () => {
               <p>Error type an valid movie name</p>
           }
         </section>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 };

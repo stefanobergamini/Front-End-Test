@@ -26,6 +26,12 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
 }
+#root {
+  @include flex-element(column, center, space-between);
+  background: linear-gradient(0deg, rgba(102,102,102,1) 5%, rgba(198,198,199,1) 20%, rgba(229,229,230,1) 75%);
+  min-height: 100%;
+  gap: 2rem;
+}
 img {
   display: block;
 }
@@ -44,43 +50,43 @@ button {
 .bt {
   border: 0.2rem solid transparent;
   width: 15rem;
-  height: 4rem;
+  height: 4.8rem;
   font-size: 2.2rem;
   border-radius: 0.5rem;
   transition: 0.5s;
 }
-.bt-blue-solid {
-  background: $blue02;
+.bt-black-solid {
+  background: $black;
   color: $white;
   &:hover {
-    background: rgba(0, 74, 145, 0.3);
-    color: $blue02;
-    border-color: $blue02;
+    background: $white;
+    color: $black;
+    border-color: $black;
+  }
+}
+.bt-black-leaked {
+  background-color: transparent;
+  color: $black;
+  border-color: $black;
+  &:hover {
+    background: $white;
+    color: $black;
+    border-color: $black;
   }
   img {
     width: 1.5rem !important;
     display: inline;
   }
 }
-.bt-blue-leaked {
-  background-color: transparent;
-  color: $white;
-  border-color: $blue02;
-  &:hover {
-    background: $white;
-    color: $blue02;
-    border-color: $blue02;
-  }
-}
 .bt-remove-favorite {
   display: flex;
   background-color: $white;
-  color: $blue02;
-  border: 1px solid $blue02;
+  color: $black;
+  border: 1px solid $black;
   &:hover {
-    background: $blue01;
-    color: $white;
-    border-color: $blue01;
+    background: $gray04;
+    color: $black;
+    border-color: $gray04;
   }
   img {
     width: 1.5rem !important;

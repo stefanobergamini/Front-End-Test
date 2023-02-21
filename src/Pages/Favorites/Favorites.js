@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import DisplayMovie from '../../Components/DisplayMovie/DisplayMovie';
+import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import './Favorites.scss'
 
@@ -25,11 +26,14 @@ const Favorites = () => {
     <>
       <Header />
       <div className='favorites'>
+        <h1>Welcome to your favorites movies page</h1> 
         {
           favorites.length !== 0 ? listFavorites :
             <p>Add yout favorites films to see them here</p>
         }
       </div>
+
+      <Footer />
     </>
   );
 };
