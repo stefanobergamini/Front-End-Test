@@ -42,7 +42,7 @@ const DisplayMovie = ({ info, index }) => {
             </div>
           </div> :
           <div className='no-search'>
-            <p>Search a movie to display its informations</p>
+            <p>Search a movie to display it's informations</p>
             <img src={smiley} alt=';)' />
           </div>
       }
