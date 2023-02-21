@@ -4,12 +4,36 @@ import { addFavorite, removeFavorite } from '../../Reducers/FavoriteSlice';
 import smiley from '../../Assets/Images/Smiley.svg'
 import heart from '../../Assets/Images/Heart.svg'
 import filledHeart from '../../Assets/Images/FilledHeart.svg'
+import starEmpty from '../../Assets/Images/StarEmpty.svg'
+import starFilled from '../../Assets/Images/StarFilled.svg'
+import starHalf from '../../Assets/Images/StarHalf.svg'
 import './DisplayMovie.scss'
 import { Button } from '@ui5/webcomponents-react';
 
 const DisplayMovie = ({ info, index }) => {
   const favorites = useSelector((state) => state.favoriteReducer);
   const dispatch = useDispatch();
+
+  const getStars = (rating) => {
+
+    // Round to nearest half
+    rating = Math.round(rating) / 2;
+    let output = [];
+  
+    // Append all the filled whole stars
+    for (var i = rating; i >= 1; i--)
+      output.push(<img src={starFilled} alt='' />);
+  
+    // If there is a half a star, append it
+    if (i === .5) output.push(<img src={starHalf} alt='' />);
+  
+    // Fill the empty stars
+    for (let i = (5 - rating); i >= 1; i--)
+      output.push(<img src={starEmpty} alt='' />);
+  
+    return output;
+  
+  }
   
   const inFavorites = () =>{
     let i = favorites.findIndex(el => el.imdbID === info.imdbID);
@@ -28,11 +52,11 @@ const DisplayMovie = ({ info, index }) => {
               <p>{info.Plot}</p>
 
               <p><strong>Actors: </strong>{info.Actors}</p>
-              <p><strong>Review: </strong>{info.imdbRating}</p>
+              <div className='review'><strong>Review: </strong>{getStars(info.imdbRating)}</div>
 
               {
                 inFavorites() ?
-                  <Button className='bt bt-remove-favorite' onClick={() => dispatch(removeFavorite(index))}>unFavorite <img src={filledHeart} alt=''/></Button> :
+                  <Button className='bt bt-remove-favorite' onClick={() => dispatch(removeFavorite(index))}>Favorite <img src={filledHeart} alt=''/></Button> :
                   <Button className='bt bt-black-leaked' onClick={() => dispatch(addFavorite(info))}>Favorite <img src={heart} alt=''/></Button>
               }
 
