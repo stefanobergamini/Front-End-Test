@@ -26,3 +26,21 @@
     }
   }
 }
+
+@include breakpoint(700px) {
+  .movie-container {
+    flex-direction: column;
+    gap: 3rem;
+    .movie-details {
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
+@include breakpoint(550px) {
+  .no-search {
+    p {
+      text-align: center;
+    }
+  }
+}

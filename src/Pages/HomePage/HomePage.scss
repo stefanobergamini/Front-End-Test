@@ -2,7 +2,6 @@
 
 .home-page {
   @include flex-element(column, center, space-between);
-  // background: linear-gradient(36deg, rgba(8,38,90,1) 17%, rgba(0,132,236,1) 93%);
 
   .title {
     @include flex-element(column, center, center);
@@ -35,17 +34,15 @@
         }
       }
     }
-    
   }
   .results {
     @include flex-element(column, center, center);
     max-width: 95rem;
     width: 100%;
-    padding: 1rem 3rem; 
+    padding: 1rem 3rem;
   }
   .no-search {
     @include flex-element(column, center, center);
-    flex: 1;
     gap: 5rem;
     p {
       font-size: 2.2rem;
@@ -53,6 +50,44 @@
     }
     img {
       height: 15rem;
+    }
+  }
+}
+
+@include breakpoint(1000px) {
+  .home-page {
+    .title {
+      max-width: 55rem;
+      .search-field {
+        padding: 2rem;
+        width: 100%;
+        .search-bar {
+          @include flex-element(column, center, center);
+          gap: 1.5rem;
+          .input-movie {
+            width: 100%;
+          }
+          .bt {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .results {
+      max-width: 55rem;
+    }
+
+  }
+}
+@include breakpoint(550px) {
+  .home-page {
+    .title {
+      .search-field {
+        h2 {
+          font-size: 2.2rem;
+          text-align: center;
+        }
+      }
     }
   }
 }

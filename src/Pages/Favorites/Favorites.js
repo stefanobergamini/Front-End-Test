@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import DisplayMovie from '../../Components/DisplayMovie/DisplayMovie';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
+import smiley from '../../Assets/Images/Smiley.svg'
 import './Favorites.scss'
 
 const Favorites = () => {
@@ -29,7 +30,11 @@ const Favorites = () => {
         <h1>Welcome to your favorites movies page</h1> 
         {
           favorites.length !== 0 ? listFavorites :
-            <p>Add yout favorites films to see them here</p>
+          <div className='no-favorites'>
+            <img src={smiley} alt=';)' />
+
+            <p>Add your favorites films to see them here</p>
+          </div>
         }
       </div>
 

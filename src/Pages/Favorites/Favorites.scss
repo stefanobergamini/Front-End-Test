@@ -5,10 +5,55 @@
   h1 {
     margin: 2rem 0;
   }
+  .no-favorites {
+    max-width: 30rem;
+    img {
+      width: 100%;
+      border-radius: 2rem;
+    }
+    p {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+  }
   .movie-repeat {
     border: 1px solid $black;
     border-radius: 2rem;
     padding: 2rem;
     margin: 2rem 0;
+  }
+}
+@include breakpoint(1000px) {
+  .favorites {
+    max-width: 55rem;
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      padding: 0 2rem;
+    }
+    .no-favorites {
+      @include flex-element(column, center, center);
+      img {
+        width: 20rem;
+      }
+    }
+  }
+}
+@include breakpoint(550px) {
+  .favorites {
+    .movie-repeat {
+      width: 90%;
+      border: 1px solid $black;
+      border-radius: 2rem;
+      padding: 1rem;
+      margin: 2rem 0;
+    }
+    .no-favorites {
+      @include flex-element(column, center, center);
+      img {
+        width: 50%;
+      }
+    }
   }
 }

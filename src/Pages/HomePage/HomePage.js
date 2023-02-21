@@ -30,21 +30,45 @@ const HomePage = () => {
     setTitle(e.target.value)
   }
 
+  // Created this function so that it is possible to submit with the enter key
+  // Input from UI5 have the onChange property, 
+  // but that also fires the search on the focusOut of the input bar, that is not wanted
+  const handleKeyDown = (e) => {
+    if(e.key === 'Enter') {
+      search(e)
+    }
+  }
+
   const search = async (e) => {
     e.preventDefault()
     const response = await searchByTitle(title)
-    console.log(response)
     setResults(response.data)
     dispatch(addMovie(response.data))
   }
 
   const findIndex = () => {
     let i = favorites.findIndex(el => el.imdbID === results.imdbID);
-    if(i === -1) 
+    if (i === -1)
       return false
     return i
   }
-  console.log(findIndex())
+
+  const reset = () => {
+    setResults(
+      {
+        Title: "",
+        Year: "",
+        Plot: "",
+        Actors: "",
+        Awards: "",
+        Poster: "",
+        imdbRating: "",
+        imdbID: "",
+        Response: "True"
+      }
+    )
+    setTitle("")
+  }
 
   return (
     <>
@@ -55,9 +79,9 @@ const HomePage = () => {
           <div className='search-field'>
             <h2>Search about the movie of your choise and save your favorite ones</h2>
             <form className='search-bar' onSubmit={search}>
-              <Input onInput={changeTitle} onChange={search} className='input-movie' placeholder='Insert name of movie' />
-              <Button className='bt bt-black-solid' type='submit'>Search</Button>
-              <Button className='bt bt-black-leaked' type='reset'>Reset</Button>
+              <Input value={title} onInput={changeTitle} className='input-movie' placeholder='Insert name of movie' onKeyDown={handleKeyDown}/>
+              <Button className='bt bt-black-solid' onClick={search}>Search</Button>
+              <Button className='bt bt-black-leaked' onClick={reset}>Reset</Button>
             </form>
           </div>
         </section>
@@ -69,7 +93,7 @@ const HomePage = () => {
                 unFavorite={false}
                 index={findIndex()}
               /> :
-              <p>Error type an valid movie name</p>
+              <p>Error type a valid movie name</p>
           }
         </section>
       </div>

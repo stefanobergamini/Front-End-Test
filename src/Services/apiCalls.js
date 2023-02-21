@@ -1,6 +1,5 @@
 import api from "./api";
 
-
 export const searchByTitle = async (title) => {
   var response = "";
   try {
