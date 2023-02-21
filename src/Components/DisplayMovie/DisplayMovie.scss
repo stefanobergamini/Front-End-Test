@@ -1,6 +1,12 @@
 @import "../../Assets/scss/config";
 
 .movie-container {
+  -webkit-animation: fadein 2s; 
+  -moz-animation: fadein 2s; 
+  -ms-animation: fadein 2s; 
+  -o-animation: fadein 2s; 
+  animation: fadein 2s;
+
   @include flex-element(row, center, space-between);
   max-width: 95rem;
   width: 100%;

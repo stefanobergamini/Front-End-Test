@@ -18,6 +18,12 @@
     }
   }
   .movie-repeat {
+    -webkit-animation: fadein 1.2s; 
+    -moz-animation: fadein 1.2s; 
+    -ms-animation: fadein 1.2s; 
+    -o-animation: fadein 1.2s; 
+    animation: fadein 1.2s;
+    
     border: 1px solid $black;
     border-radius: 2rem;
     padding: 2rem;

@@ -27,17 +27,16 @@ const Favorites = () => {
     <>
       <Header />
       <div className='favorites'>
-        <h1>Welcome to your favorites movies page</h1> 
+        <h1>Welcome to your favorites movies page</h1>
         {
           favorites.length !== 0 ? listFavorites :
-          <div className='no-favorites'>
-            <img src={smiley} alt=';)' />
+            <div className='no-favorites'>
+              <img src={smiley} alt=';)' />
 
-            <p>Add your favorites films to see them here</p>
-          </div>
+              <p>Add your favorites films to see them here</p>
+            </div>
         }
       </div>
-
       <Footer />
     </>
   );

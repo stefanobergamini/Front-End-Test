@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Header from '../../Components/Header/Header';
-import { addMovie } from '../../Reducers/MovieSlice';
 import { searchByTitle } from '../../Services/apiCalls';
 
 import { Input, Button } from '@ui5/webcomponents-react';
@@ -24,7 +23,6 @@ const HomePage = () => {
     imdbID: "",
     Response: "True"
   })
-  const dispatch = useDispatch();
 
   const changeTitle = (e) => {
     setTitle(e.target.value)
@@ -43,7 +41,6 @@ const HomePage = () => {
     e.preventDefault()
     const response = await searchByTitle(title)
     setResults(response.data)
-    dispatch(addMovie(response.data))
   }
 
   const findIndex = () => {
