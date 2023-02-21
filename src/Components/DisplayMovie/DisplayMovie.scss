@@ -1,0 +1,28 @@
+@import "../../Assets/scss/config";
+
+.movie-container {
+  @include flex-element(row, flex-start, space-between);
+  max-width: 95rem;
+  width: 100%;
+  .movie-details {
+    @include flex-element(column, flex-start);
+    gap: 3rem;
+    padding: 0 3rem;
+    max-width: 50rem;
+    width: 100%;
+    h3 {
+      font-size: 3rem;
+      color: $gray04;
+    }
+    p {
+      font-size: 2.2rem;
+      color: $gray04;
+    }
+  }
+  div {
+    max-width: 30rem;
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+$blue01: #446084;
+$blue02: #1481e7;
+$orange: #ec7000;
+$red: #e60000;
+$whatsapp: #28D755;
+$black: #000000;
+$gray01: #525354;
+$gray02: #818284;
+$gray03: #C2C2C2;
+$gray04: #EEEBEB;
+$gray05: #D3D3D3;
+$gray06: #605751;
+$white: #ffffff;
+
+@mixin flex-element($direction: row, $align: center, $justify: space-between) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin breakpoint($screenWidth) {
+  @media (max-width: $screenWidth) {
+    @content;
+  }
+}

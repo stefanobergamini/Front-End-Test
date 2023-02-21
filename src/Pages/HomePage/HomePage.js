@@ -3,20 +3,25 @@ import { useDispatch } from 'react-redux';
 import Header from '../../Components/Header/Header';
 import { addMovie } from '../../Reducers/MovieSlice';
 import { searchByTitle } from '../../Services/apiCalls';
+	
+import { Input, Button } from '@ui5/webcomponents-react';
+
 import './HomePage.scss'
 import DisplayMovie from '../../Components/DisplayMovie/DisplayMovie';
+import Footer from '../../Components/Footer/Footer';
 
 const HomePage = () => {
   // const movie = useSelector((state) => state.movieReducer);
   const [title, setTitle] = useState("");
   const [results, setResults] = useState({
     Title: "",
-    Year:"",
+    Year: "",
     Plot: "",
     Actors: "",
-    Awards:"",
+    Awards: "",
     Poster: "",
-    imdbRating: ""
+    imdbRating: "",
+    Response: "True"
   })
   const dispatch = useDispatch();
 
@@ -24,7 +29,8 @@ const HomePage = () => {
     setTitle(e.target.value)
   }
 
-  const search = async () => {
+  const search = async (e) => {
+    e.preventDefault()
     const response = await searchByTitle(title)
     console.log(response)
     setResults(response.data)
@@ -32,24 +38,29 @@ const HomePage = () => {
   }
 
   return (
-    <>
-    <Header />
+    <div className='home-page'>
+      <Header />
       <section className='title'>
         <h1>Movie Search</h1>
         <h2>Search about the movie of your choise and save your favorite ones</h2>
-        <div className='search-bar'>
-          <input onChange={changeTitle}></input>
-          <button onClick={search}>Searct</button>
-          <button>Reset</button>
-        </div>
+        <form className='search-bar' onSubmit={search}>
+          <Input onInput={changeTitle} onChange={search} className='input-movie' placeholder='Insert name of movie'/>
+          <Button className='bt bt-blue-solid'  type='submit'>Search</Button>
+          <button className='bt bt-blue-leaked' type='reset'>Reset</button>
+        </form>
       </section>
       <section className='results'>
-        <DisplayMovie 
-          info={results}
-          unFavorite={false}
-        />
+        {
+          results.Response === "True" ? 
+          <DisplayMovie
+            info={results}
+            unFavorite={false}
+          /> :
+          <p>Error type an valid movie name</p>
+        }
       </section>
-    </>
+      <Footer />
+    </div>
   );
 };
 

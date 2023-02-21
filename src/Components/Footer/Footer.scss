@@ -1,9 +1,9 @@
 @import "../../Assets/scss/config";
 
-header {
+footer {
   width: 100%;
   min-width: 37.5rem;
-  height: 9rem;
+  height: 5rem;
   .container {
     display: flex;
     flex-direction: row;
@@ -12,7 +12,7 @@ header {
     height: 100%;
     padding: 1rem 2rem;
     div {
-      max-width: 20rem;
+      max-width: 30rem;
     }
     img {
       width: 100%

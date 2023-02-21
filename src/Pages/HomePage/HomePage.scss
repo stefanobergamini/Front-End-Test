@@ -1,6 +1,55 @@
-.title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+@import "../../Assets/scss/config";
+
+.home-page {
+  @include flex-element(column, center, space-between);
+  height: 100vh;
+  background: linear-gradient(36deg, rgba(8,38,90,1) 17%, rgba(0,132,236,1) 93%);
+
+  .title {
+    @include flex-element(column, center, center);
+    max-width: 95rem;
+    width: 100%;
+    padding: 3rem;
+    h1 {
+      color: $gray04;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+    h2 {
+      color: $gray04;
+      font-size: 2.4rem;
+      margin: 2rem 0;
+    }
+    form {
+      @include flex-element();
+      gap: 2rem;
+      .input-movie {
+        width: 50rem;
+        height: 4rem;
+        font-size: 2.2rem;
+        border-radius: 0.5rem;
+      }
+      .input-movie:focus {
+        outline: none !important;
+      }
+    }
+  }
+  .results {
+    @include flex-element(column, center, center);
+    max-width: 95rem;
+    width: 100%;
+    padding: 1rem 3rem; 
+  }
+  .no-search {
+    @include flex-element(column, center, center);
+    flex: 1;
+    gap: 5rem;
+    p {
+      font-size: 2.2rem;
+      color: $blue02;
+    }
+    img {
+      height: 15rem;
+    }
+  }
 }
