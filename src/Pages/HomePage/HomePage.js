@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../Components/Header/Header';
 import { addMovie } from '../../Reducers/MovieSlice';
 import { searchByTitle } from '../../Services/apiCalls';
@@ -11,7 +11,7 @@ import DisplayMovie from '../../Components/DisplayMovie/DisplayMovie';
 import Footer from '../../Components/Footer/Footer';
 
 const HomePage = () => {
-  // const movie = useSelector((state) => state.movieReducer);
+  const favorites = useSelector((state) => state.favoriteReducer);
   const [title, setTitle] = useState("");
   const [results, setResults] = useState({
     Title: "",
@@ -21,6 +21,7 @@ const HomePage = () => {
     Awards: "",
     Poster: "",
     imdbRating: "",
+    imdbID: "",
     Response: "True"
   })
   const dispatch = useDispatch();
@@ -36,6 +37,14 @@ const HomePage = () => {
     setResults(response.data)
     dispatch(addMovie(response.data))
   }
+
+  const findIndex = () => {
+    let i = favorites.findIndex(el => el.imdbID === results.imdbID);
+    if(i === -1) 
+      return false
+    return i
+  }
+  console.log(findIndex())
 
   return (
     <>
@@ -56,6 +65,7 @@ const HomePage = () => {
               <DisplayMovie
                 info={results}
                 unFavorite={false}
+                index={findIndex()}
               /> :
               <p>Error type an valid movie name</p>
           }

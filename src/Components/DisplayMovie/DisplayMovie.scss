@@ -1,7 +1,7 @@
 @import "../../Assets/scss/config";
 
 .movie-container {
-  @include flex-element(row, flex-start, space-between);
+  @include flex-element(row, center, space-between);
   max-width: 95rem;
   width: 100%;
   .movie-details {
@@ -23,6 +23,7 @@
     max-width: 30rem;
     img {
       width: 100%;
+      border-radius: 2rem;
     }
   }
 }

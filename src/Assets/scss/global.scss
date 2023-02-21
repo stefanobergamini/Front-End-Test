@@ -57,6 +57,10 @@ button {
     color: $blue02;
     border-color: $blue02;
   }
+  img {
+    width: 1.5rem !important;
+    display: inline;
+  }
 }
 .bt-blue-leaked {
   background-color: transparent;
@@ -66,5 +70,20 @@ button {
     background: $white;
     color: $blue02;
     border-color: $blue02;
+  }
+}
+.bt-remove-favorite {
+  display: flex;
+  background-color: $white;
+  color: $blue02;
+  border: 1px solid $blue02;
+  &:hover {
+    background: $blue01;
+    color: $white;
+    border-color: $blue01;
+  }
+  img {
+    width: 1.5rem !important;
+    display: inline;
   }
 }

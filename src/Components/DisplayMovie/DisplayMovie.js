@@ -1,13 +1,23 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addFavorite, removeFavorite } from '../../Reducers/FavoriteSlice';
 import smiley from '../../Assets/Images/Smiley.svg'
+import heart from '../../Assets/Images/Heart.svg'
+import filledHeart from '../../Assets/Images/FilledHeart.svg'
 import './DisplayMovie.scss'
 import { Button } from '@ui5/webcomponents-react';
 
-const DisplayMovie = ({ info, unFavorite, index }) => {
+const DisplayMovie = ({ info, index }) => {
+  const favorites = useSelector((state) => state.favoriteReducer);
   const dispatch = useDispatch();
-
+  
+  const inFavorites = () =>{
+    let i = favorites.findIndex(el => el.imdbID === info.imdbID);
+    if(i === -1) 
+      return false
+    return true
+  }
+  
   return (
     <>
       {
@@ -21,9 +31,9 @@ const DisplayMovie = ({ info, unFavorite, index }) => {
               {info.imdbRating !== "" && <p><strong>Review: </strong>{info.imdbRating}</p>}
 
               {
-                unFavorite ?
-                  <Button className='bt bt-blue-solid' onClick={() => dispatch(removeFavorite(index))}>Remove Favorite</Button> :
-                  <Button className='bt bt-blue-solid' onClick={() => dispatch(addFavorite(info))}>Favorite</Button>
+                inFavorites() ?
+                  <Button className='bt bt-remove-favorite' onClick={() => dispatch(removeFavorite(index))}>unFavorite <img src={filledHeart} alt=''/></Button> :
+                  <Button className='bt bt-blue-solid' onClick={() => dispatch(addFavorite(info))}>Favorite <img src={heart} alt=''/></Button>
               }
 
             </div>

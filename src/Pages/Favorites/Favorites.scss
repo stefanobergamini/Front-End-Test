@@ -1,0 +1,11 @@
+@import "../../Assets/scss/config";
+
+.favorites {
+  @include flex-element(column, center, center);
+  .movie-repeat {
+    background-color: $blue02;
+    border-radius: 2rem;
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+}
