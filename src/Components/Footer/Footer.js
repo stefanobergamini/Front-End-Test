@@ -6,7 +6,6 @@ const Footer = () => {
   return (
     <footer>
       <div className='container'>
-
         <div>
           <Link className='links' to='/'>Search</Link>
           <Link className='links' to='/Favorites'>Favorites</Link>

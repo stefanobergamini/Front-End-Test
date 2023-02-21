@@ -8,8 +8,7 @@ import './Favorites.scss'
 
 const Favorites = () => {
   const favorites = useSelector((state) => state.favoriteReducer);
-  console.log(favorites)
-
+  
   var listFavorites = favorites.map(function (element, index) {
     return (
       <div className='movie-repeat'>

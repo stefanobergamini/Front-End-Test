@@ -90,7 +90,7 @@ const HomePage = () => {
                 unFavorite={false}
                 index={findIndex()}
               /> :
-              <p>Error type a valid movie name</p>
+              <p>{results.Error}</p>
           }
         </section>
       </div>

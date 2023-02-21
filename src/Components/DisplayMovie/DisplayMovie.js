@@ -27,8 +27,8 @@ const DisplayMovie = ({ info, index }) => {
               <h3>{info.Title}</h3>
               <p>{info.Plot}</p>
 
-              {info.Actors !== "" && <p><strong>Actors: </strong>{info.Actors}</p>}
-              {info.imdbRating !== "" && <p><strong>Review: </strong>{info.imdbRating}</p>}
+              <p><strong>Actors: </strong>{info.Actors}</p>
+              <p><strong>Review: </strong>{info.imdbRating}</p>
 
               {
                 inFavorites() ?
