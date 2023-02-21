@@ -2,7 +2,7 @@
 
 .home-page {
   @include flex-element(column, center, space-between);
-  height: 100vh;
+  height: calc(100vh - 90px);
   background: linear-gradient(36deg, rgba(8,38,90,1) 17%, rgba(0,132,236,1) 93%);
 
   .title {
@@ -12,7 +12,7 @@
     padding: 3rem;
     h1 {
       color: $gray04;
-      font-size: 3rem;
+      font-size: 3.8rem;
       margin-bottom: 2rem;
     }
     h2 {

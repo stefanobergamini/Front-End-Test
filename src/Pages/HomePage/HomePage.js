@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import Header from '../../Components/Header/Header';
 import { addMovie } from '../../Reducers/MovieSlice';
 import { searchByTitle } from '../../Services/apiCalls';
-	
+
 import { Input, Button } from '@ui5/webcomponents-react';
 
 import './HomePage.scss'
@@ -38,29 +38,31 @@ const HomePage = () => {
   }
 
   return (
-    <div className='home-page'>
+    <>
       <Header />
-      <section className='title'>
-        <h1>Movie Search</h1>
-        <h2>Search about the movie of your choise and save your favorite ones</h2>
-        <form className='search-bar' onSubmit={search}>
-          <Input onInput={changeTitle} onChange={search} className='input-movie' placeholder='Insert name of movie'/>
-          <Button className='bt bt-blue-solid'  type='submit'>Search</Button>
-          <button className='bt bt-blue-leaked' type='reset'>Reset</button>
-        </form>
-      </section>
-      <section className='results'>
-        {
-          results.Response === "True" ? 
-          <DisplayMovie
-            info={results}
-            unFavorite={false}
-          /> :
-          <p>Error type an valid movie name</p>
-        }
-      </section>
-      <Footer />
-    </div>
+      <div className='home-page'>
+        <section className='title'>
+          <h1>Movie Search</h1>
+          <h2>Search about the movie of your choise and save your favorite ones</h2>
+          <form className='search-bar' onSubmit={search}>
+            <Input onInput={changeTitle} onChange={search} className='input-movie' placeholder='Insert name of movie' />
+            <Button className='bt bt-blue-solid' type='submit'>Search</Button>
+            <Button className='bt bt-blue-leaked' type='reset'>Reset</Button>
+          </form>
+        </section>
+        <section className='results'>
+          {
+            results.Response === "True" ?
+              <DisplayMovie
+                info={results}
+                unFavorite={false}
+              /> :
+              <p>Error type an valid movie name</p>
+          }
+        </section>
+        <Footer />
+      </div>
+    </>
   );
 };
 

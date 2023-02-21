@@ -5,14 +5,12 @@ footer {
   min-width: 37.5rem;
   height: 5rem;
   .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    @include flex-element(row, center, center);
     height: 100%;
     padding: 1rem 2rem;
     div {
-      max-width: 30rem;
+      @include flex-element(row, center, center);
+      gap: 3rem;
     }
     img {
       width: 100%

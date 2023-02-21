@@ -4,6 +4,7 @@ header {
   width: 100%;
   min-width: 37.5rem;
   height: 9rem;
+  background-color: #7F8086;
   .container {
     display: flex;
     flex-direction: row;
@@ -15,7 +16,7 @@ header {
       max-width: 20rem;
     }
     img {
-      width: 100%
+      height: 8rem;
     }
     .links {
       width: fit-content;
@@ -25,11 +26,12 @@ header {
       font-size: 1.6rem;
       border: 0.5rem solid transparent;
       background-color: transparent;
-      color: #fff;
+      color: $gray04;
       transition: 0.5s;
     }
     .links:hover {
-      background-color: $blue01;
+      background-color: $gray04;
+      color: $black;
     }
   }
 }
