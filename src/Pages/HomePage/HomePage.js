@@ -77,7 +77,7 @@ const HomePage = () => {
             <h2>Search about the movie of your choice and save your favorite ones</h2>
             <form className='search-bar' onSubmit={search}>
               <Input value={title} onInput={changeTitle} className='input-movie' placeholder='Insert name of movie' onKeyDown={handleKeyDown}/>
-              <Button className='bt bt-black-solid' onClick={search}>Search</Button>
+              <Button className='bt bt-black-solid' disabled={title===""} onClick={search}>Search</Button>
               <Button className='bt bt-black-leaked' onClick={reset}>Reset</Button>
             </form>
           </div>
